@@ -2,6 +2,22 @@ from math import sqrt
 import ipdb
 from operator import itemgetter
 
+def checkdups(slist):
+    fr =[]
+    for i in range(100):
+        fr.append(0)
+
+    for elem in slist:
+        if elem !=-1:
+            fr[elem]+=1
+
+    for freq in fr:
+        if freq ==2:
+            return  True
+
+    return False
+
+
 
 class Sudoku:
     """
@@ -17,7 +33,20 @@ class Sudoku:
         """
         checks if the sudoku is partialy correct
         """
-        pass
+        #check rows
+        for row in self._table:
+            if checkdups(row) is True:
+                return  False
+        #check cols
+        cols =[]
+        for  i in range(0,len(self._table)):
+            cur_col = []
+            for j in range(0, len(self._table)):
+                cur_col.append(self._table[j][i])
+            if checkdups(cur_col) is True:
+                return  False
+        return  True
+
 
     def read_from_file(self):
         """
@@ -166,8 +195,10 @@ class Sudoku:
         return len(diff_list)
 
     def first_heuristics_pos(self):
-        return self.return_best_heuristic_positions()[0][1]
-
+        if len(self.return_best_heuristic_positions()) != 0:
+            return self.return_best_heuristic_positions()[0][1]
+        else:
+            return  self.first_free_position()
     def return_best_heuristic_positions(self):
         """
         :return the sorted list with possible candidates
@@ -192,6 +223,3 @@ class Sudoku:
             pString += "\n"
         return pString
 
-
-s = Sudoku()
-s.read_from_file()

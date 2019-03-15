@@ -10,8 +10,8 @@ class SudokuController:
         return self._s_table
 
     @staticmethod
-    def final_state(board):
-        return board.first_free_position() == [0, 0]
+    def final_state(s_table):
+        return s_table.check_part() and s_table.first_free_position() == [0, 0]
 
     @staticmethod
     def expand(s_table):
