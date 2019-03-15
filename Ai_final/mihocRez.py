@@ -285,5 +285,31 @@ def main():
 
 main()
 
+# -*- coding: utf-8 -*-
+"""
+
+jumping frogs:
+    find a sequence of valid steps in order to swich places of n red frogs with 
+    n brown frogs.
+
+    A step is valid if a frog moves a step forward or jumps over one frog 
+    if the destination place is empty
+
+    Red frogs are moving only in the direction from the begining to the end 
+    of the line brown frogs are moving only in the direction from the end of 
+    the line towards the begining
+
+    example:
+    initial configuration: RRR BBB
+    final configuration: BBB RRR
+
+
+    we observe running this example that the BestFS takes a longer time for n=10
+    than BFS (over more 50 times longer) due the fact that the heuristic leads 
+    to 'dead paths' also computing the heuristic and sorting the new vertexes 
+    consume computing power
+
+    """
+
 
 
