@@ -1,22 +1,21 @@
 from math import sqrt
-import ipdb
 from operator import itemgetter
 
+
 def checkdups(slist):
-    fr =[]
+    fr = []
     for i in range(100):
         fr.append(0)
 
     for elem in slist:
-        if elem !=-1:
-            fr[elem]+=1
+        if elem != -1:
+            fr[elem] += 1
 
     for freq in fr:
-        if freq ==2:
-            return  True
+        if freq == 2:
+            return True
 
     return False
-
 
 
 class Sudoku:
@@ -33,20 +32,19 @@ class Sudoku:
         """
         checks if the sudoku is partialy correct
         """
-        #check rows
+        # check rows
         for row in self._table:
             if checkdups(row) is True:
-                return  False
-        #check cols
-        cols =[]
-        for  i in range(0,len(self._table)):
+                return False
+        # check cols
+        cols = []
+        for i in range(0, len(self._table)):
             cur_col = []
             for j in range(0, len(self._table)):
                 cur_col.append(self._table[j][i])
             if checkdups(cur_col) is True:
-                return  False
-        return  True
-
+                return False
+        return True
 
     def read_from_file(self):
         """
@@ -197,8 +195,9 @@ class Sudoku:
     def first_heuristics_pos(self):
         if len(self.return_best_heuristic_positions()) != 0:
             return self.return_best_heuristic_positions()[0][1]
-        else:
-            return  self.first_free_position()
+
+        return  [0,0]
+
     def return_best_heuristic_positions(self):
         """
         :return the sorted list with possible candidates
@@ -219,7 +218,9 @@ class Sudoku:
         pString = ""
         for row in self._table:
             for col in row:
-                pString += str(col) + " "
+                if col == -1:
+                    pString += " " + " "
+                else:
+                    pString += str(col) + " "
             pString += "\n"
         return pString
-
