@@ -95,10 +95,11 @@ class Population:
         print("The average fitness is : ", mean([x.fitness() for x in self.list_of_individs]))
         print("The standart deviation  is : ", stdev([x.fitness() for x in self.list_of_individs]))
 
-        x = [i for i in range(25)]
-        y = [i.fitness() for i in self.list_of_individs]
-        plt.plot(x, y)
-        plt.show()
+
+        return max(self.list_of_individs, key=lambda x: x.fitness())
+
+    def get_best_fitness(self):
+        return max(self.list_of_individs, key=lambda x: x.fitness())
 
 
 class Problem:
@@ -168,6 +169,9 @@ class Algorithm:
     def statistics(self):
         self._population.evaluate()
 
+    def get_best_individ(self):
+        return self._population.get_best_fitness()
+
 
 def main_function():
     p = Problem('input.txt')
@@ -176,7 +180,28 @@ def main_function():
     alg.run(nrIteration=1000, prob=probability)
 
 
-main_function()
+# b
+def main_functionTwo():
+    all_biggest_fitness = []
+    for i in range(30):
+        p = Problem('input.txt')
+        alg = Algorithm(p)
+        probability = 1
+        alg.run(nrIteration=1000, prob=probability)
+        all_biggest_fitness.append(alg.get_best_individ())
+
+    print("The average fitness for 30 runs  is : ", mean([x.fitness() for x in  all_biggest_fitness]))
+    print("The standart deviation  for 30 runst is : ", stdev([x.fitness() for x in  all_biggest_fitness]))
+    x = [i for i in range(30)]
+    y = [i.fitness() for i in all_biggest_fitness]
+    plt.plot(x, y)
+    plt.show()
+
+
+# pct a
+# main_function()
+main_functionTwo()
+# pct b
 
 # horea
 # from matplotlib import *
