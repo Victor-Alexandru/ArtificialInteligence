@@ -7,7 +7,10 @@ Sa se determine minimul functiei f(x)= x_1**2+...+x_n**2
 from random import randint, random
 from operator import add
 from math import cos, pi
+<<<<<<< HEAD
 import  statistics as std
+=======
+>>>>>>> ffb7878fc440ebb8d257c79ffa193c9d2e3e66d4
 
 
 def individual(length, vmin, vmax):
@@ -86,7 +89,11 @@ def iteration(pop, pM, vmin, vmax):
     '''
     i1 = randint(0, len(pop) - 1)
     i2 = randint(0, len(pop) - 1)
+<<<<<<< HEAD
     if i1 != i2:
+=======
+    if (i1 != i2):
+>>>>>>> ffb7878fc440ebb8d257c79ffa193c9d2e3e66d4
         c = crossover(pop[i1], pop[i2])
         c = mutate(c, pM, vmin, vmax)
         f1 = fitness(pop[i1])
@@ -104,7 +111,11 @@ def iteration(pop, pM, vmin, vmax):
     return pop
 
 
+<<<<<<< HEAD
 def main(noIteratii):
+=======
+def main(noIteratii=10000):
+>>>>>>> ffb7878fc440ebb8d257c79ffa193c9d2e3e66d4
     # PARAMETERS:
 
     # population size
@@ -119,11 +130,14 @@ def main(noIteratii):
 
     P = population(dimPopulation, dimIndividual, vmin, vmax)
     for i in range(noIteratii):
+<<<<<<< HEAD
 
         print("--------------------------------------")
         print("Iteratia nr", i)
         print("--------------------------------------")
 
+=======
+>>>>>>> ffb7878fc440ebb8d257c79ffa193c9d2e3e66d4
         P = iteration(P, pM, vmin, vmax)
 
     # print the best individual
@@ -135,5 +149,9 @@ def main(noIteratii):
     print('Result: The detected minimum point after %d iterations is f(%3.2f %3.2f) = %3.2f' % \
           (noIteratii, individualOptim[0], individualOptim[1], fitnessOptim))
 
+<<<<<<< HEAD
 
 main(110500)
+=======
+main(noIteratii=500)
+>>>>>>> ffb7878fc440ebb8d257c79ffa193c9d2e3e66d4

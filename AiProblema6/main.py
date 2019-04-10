@@ -203,10 +203,3 @@ def main_functionTwo():
 main_functionTwo()
 # pct b
 
-# horea
-# from matplotlib import *
-#
-# x = [i for i in range(40)]
-# y = [i.getfitness() for i in range(40)]
-# m =  matplotlib.plot(x,y)
-#  m.show()

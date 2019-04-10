@@ -12,6 +12,7 @@ class UI:
         s = ''
         s += "Look in the file to see the configuration you choose.\n"
         s += "0 - exit \n"
+        s += "1 - Print table \n"
         s += "2 - find a path with BFS \n"
         s += "3 - find a path with GBFS\n"
         print(s)
@@ -26,6 +27,9 @@ class UI:
         [print(x) for x in self._c.gbfs()]
         print('execution time = ', time() - startClock, " seconds")
 
+    def printTbl(self):
+        return self._c.get_s_table()
+
     def run(self):
         runM = True
         self.printMainMenu()
@@ -34,6 +38,8 @@ class UI:
                 command = int(input(">>"))
                 if command == 0:
                     runM = False
+                if command == 1:
+                    print(self.printTbl())
                 elif command == 2:
                     self.findPathBFS()
                 elif command == 3:
