@@ -108,7 +108,7 @@ class Problem:
         self.file = file
 
     def return_population(self):
-        rez = list(itertools.permutations(self.loadData()))[:25]
+        rez = list(itertools.permutations(self.loadData()))[:40]
         for i in range(0, len(rez)):
             rez[i] = Individ(len(list(rez[i])), rez[i])
         return Population(rez)
