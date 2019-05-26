@@ -1,0 +1,3 @@
+Build a system that approximates the UPDRS indexes for the Parkinson’s disease based on patients’ data (sex, age, vocal signs).
+The training data will be taken from:
+http://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring
